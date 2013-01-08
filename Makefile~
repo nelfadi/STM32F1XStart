@@ -126,6 +126,7 @@ CDEFS += -DUSE_STDPERIPH_DRIVER
 #CDEFS += -DUSE_FULL_ASSERT
 
 CDEFS += -DSYSCLK_FREQ_72MHz
+# CDEFS += -DSYSCLK_FREQ_36MHz
 
 # Place project-specific -D and/or -U options for 
 # Assembler with preprocessor here.

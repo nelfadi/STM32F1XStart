@@ -15,187 +15,153 @@
   15              		.text
   16              	.Ltext0:
   17              		.cfi_sections	.debug_frame
-  18              		.section	.text.NVIC_Configuration,"ax",%progbits
+  18              		.section	.text.Delay,"ax",%progbits
   19              		.align	1
-  20              		.global	NVIC_Configuration
+  20              		.global	Delay
   21              		.thumb
   22              		.thumb_func
-  24              	NVIC_Configuration:
+  24              	Delay:
   25              		.fnstart
   26              	.LFB30:
   27              		.file 1 "main.c"
-   1:main.c        **** /*===========================================================================
-   2:main.c        ****  * DESCRIPTION:
-   3:main.c        ****  *
-   4:main.c        ****  * This example exhibits basic functionality of the STM32-Primer. It toggles
-   5:main.c        ****  * the onboard LEDs.
-   6:main.c        ****  *
-   7:main.c        ****  *---------------------------------------------------------------------------
-   8:main.c        ****  * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
-   9:main.c        ****  * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-  10:main.c        ****  * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
-  11:main.c        ****  * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-  12:main.c        ****  * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
-  13:main.c        ****  * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
-  14:main.c        ****  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-  15:main.c        ****  *---------------------------------------------------------------------------
-  16:main.c        ****  * Copyright (c) Raisonance S.A.S., 2007-2009
-  17:main.c        ****  *==========================================================================*/
-  18:main.c        **** 
-  19:main.c        **** /* Includes ------------------------------------------------------------------*/
-  20:main.c        **** #include "stm32f10x_conf.h"
-  21:main.c        **** 
-  22:main.c        **** 
-  23:main.c        **** /* Private typedef -----------------------------------------------------------*/
-  24:main.c        **** /* Private define ------------------------------------------------------------*/
-  25:main.c        **** /* Private macro -------------------------------------------------------------*/
-  26:main.c        **** /* Private variables ---------------------------------------------------------*/
-  27:main.c        **** GPIO_InitTypeDef GPIO_InitStructure;
+   1:main.c        **** #include "stm32f10x_conf.h"
+   2:main.c        **** 
+   3:main.c        **** 
+   4:main.c        **** GPIO_InitTypeDef GPIO_InitStructure;
+   5:main.c        **** 
+   6:main.c        **** 
+   7:main.c        **** void Delay(vu32 nCount);
+   8:main.c        **** void LED_Flash(void);
+   9:main.c        **** 
+  10:main.c        **** 
+  11:main.c        **** int main(void)
+  12:main.c        **** {
+  13:main.c        **** 
+  14:main.c        ****   /* Enable clocks */
+  15:main.c        ****   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
+  16:main.c        **** 
+  17:main.c        ****  
+  18:main.c        ****   /* Configure PC.06 PC.07 as output push-pull */
+  19:main.c        ****   GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_6 | GPIO_Pin_7;
+  20:main.c        ****   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+  21:main.c        ****   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  22:main.c        ****   GPIO_Init(GPIOC, &GPIO_InitStructure);
+  23:main.c        **** 
+  24:main.c        ****   //==============================================
+  25:main.c        **** 
+  26:main.c        ****   SysTick_Config(SystemCoreClock / 1000);
+  27:main.c        **** 
   28:main.c        **** 
-  29:main.c        **** 
-  30:main.c        **** 
-  31:main.c        **** /* Private function prototypes -----------------------------------------------*/
-  32:main.c        **** void RCC_Configuration(void);
-  33:main.c        **** void NVIC_Configuration(void);
-  34:main.c        **** void Delay(vu32 nCount);
+  29:main.c        ****   while(1)
+  30:main.c        ****   {
+  31:main.c        **** 
+  32:main.c        **** 
+  33:main.c        ****     GPIO_SetBits(GPIOC, GPIO_Pin_6);
+  34:main.c        ****     GPIO_ResetBits(GPIOC, GPIO_Pin_7);
   35:main.c        **** 
-  36:main.c        **** void LED_Flash(void);
-  37:main.c        **** 
-  38:main.c        **** /* Private functions ---------------------------------------------------------*/
-  39:main.c        **** /*******************************************************************************
-  40:main.c        **** * Function Name  : main
-  41:main.c        **** * Description    : Main program.
-  42:main.c        **** * Input          : None
-  43:main.c        **** * Output         : None
-  44:main.c        **** * Return         : None
-  45:main.c        **** *******************************************************************************/
-  46:main.c        **** int main(void)
-  47:main.c        **** {
+  36:main.c        ****     Delay(0xDFFFF);
+  37:main.c        ****     
+  38:main.c        ****     GPIO_ResetBits(GPIOC, GPIO_Pin_6);
+  39:main.c        ****     GPIO_SetBits(GPIOC, GPIO_Pin_7);
+  40:main.c        **** 
+  41:main.c        ****     Delay(0xDFFFF);
+  42:main.c        **** 
+  43:main.c        **** 
+  44:main.c        **** 
+  45:main.c        ****   }
+  46:main.c        **** }
+  47:main.c        **** 
   48:main.c        **** 
-  49:main.c        ****   /* NVIC Configuration */
-  50:main.c        ****   NVIC_Configuration();
-  51:main.c        **** 
-  52:main.c        ****   /* Enable clocks */
-  53:main.c        ****   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
-  54:main.c        **** 
-  55:main.c        ****  
-  56:main.c        ****   /* Configure PC.06 PC.07 as output push-pull */
-  57:main.c        ****   GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_6 | GPIO_Pin_7;
-  58:main.c        ****   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-  59:main.c        ****   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-  60:main.c        ****   GPIO_Init(GPIOC, &GPIO_InitStructure);
-  61:main.c        **** 
-  62:main.c        ****   //==============================================
-  63:main.c        **** 
-  64:main.c        ****   SysTick_Config(SystemCoreClock / 1000);
-  65:main.c        **** 
-  66:main.c        **** 
-  67:main.c        ****   while(1)
-  68:main.c        ****   {
-  69:main.c        **** 
-  70:main.c        **** /* 
-  71:main.c        ****     GPIO_SetBits(GPIOC, GPIO_Pin_6);
-  72:main.c        ****     GPIO_ResetBits(GPIOC, GPIO_Pin_7);
-  73:main.c        **** 
-  74:main.c        ****     Delay(0xDFFFF);
-  75:main.c        ****     
-  76:main.c        ****     GPIO_ResetBits(GPIOC, GPIO_Pin_6);
-  77:main.c        ****     GPIO_SetBits(GPIOC, GPIO_Pin_7);
-  78:main.c        **** 
-  79:main.c        ****     Delay(0xDFFFF);
-  80:main.c        **** 
-  81:main.c        **** */
-  82:main.c        **** 
-  83:main.c        ****   }
-  84:main.c        **** }
-  85:main.c        **** 
-  86:main.c        **** 
-  87:main.c        **** /*******************************************************************************
-  88:main.c        **** * Function Name  : NVIC_Configuration
-  89:main.c        **** * Description    : Configures Vector Table base location.
-  90:main.c        **** * Input          : None
-  91:main.c        **** * Output         : None
-  92:main.c        **** * Return         : None
-  93:main.c        **** *******************************************************************************/
-  94:main.c        **** void NVIC_Configuration(void)
-  95:main.c        **** {
-  28              		.loc 1 95 0
+  49:main.c        **** void Delay(vu32 nCount)
+  50:main.c        **** {
+  28              		.loc 1 50 0
   29              		.cfi_startproc
-  30              		@ args = 0, pretend = 0, frame = 0
+  30              		@ args = 0, pretend = 0, frame = 8
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
-  96:main.c        ****   /* Set the Vector Table base location at 0x08000000 */ 
-  97:main.c        ****   NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x0);
-  33              		.loc 1 97 0
-  34 0000 4FF00060 		mov	r0, #134217728
-  35 0004 0021     		movs	r1, #0
-  98:main.c        **** }
-  36              		.loc 1 98 0
-  97:main.c        ****   NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x0);
-  37              		.loc 1 97 0
-  38 0006 FFF7FEBF 		b	NVIC_SetVectorTable
-  39              	.LVL0:
-  40              		.cfi_endproc
-  41              	.LFE30:
-  42              		.fnend
-  44              		.section	.text.startup.main,"ax",%progbits
-  45              		.align	1
-  46              		.global	main
-  47              		.thumb
-  48              		.thumb_func
-  50              	main:
-  51              		.fnstart
-  52              	.LFB29:
-  47:main.c        **** {
-  53              		.loc 1 47 0
-  54              		.cfi_startproc
-  55              		@ args = 0, pretend = 0, frame = 0
-  56              		@ frame_needed = 0, uses_anonymous_args = 0
-  57 0000 08B5     		push	{r3, lr}
-  58              		.save {r3, lr}
-  59              	.LCFI0:
-  60              		.cfi_def_cfa_offset 8
-  61              		.cfi_offset 3, -8
-  62              		.cfi_offset 14, -4
-  50:main.c        ****   NVIC_Configuration();
-  63              		.loc 1 50 0
-  64 0002 FFF7FEFF 		bl	NVIC_Configuration
-  65              	.LVL1:
-  53:main.c        ****   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
-  66              		.loc 1 53 0
-  67 0006 1020     		movs	r0, #16
-  68 0008 0121     		movs	r1, #1
-  69 000a FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
-  70              	.LVL2:
-  57:main.c        ****   GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_6 | GPIO_Pin_7;
-  71              		.loc 1 57 0
-  72 000e 0E49     		ldr	r1, .L4
-  73 0010 C023     		movs	r3, #192
-  74 0012 0B80     		strh	r3, [r1, #0]	@ movhi
-  58:main.c        ****   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-  75              		.loc 1 58 0
-  76 0014 1023     		movs	r3, #16
-  77 0016 8B60     		str	r3, [r1, #8]
-  60:main.c        ****   GPIO_Init(GPIOC, &GPIO_InitStructure);
-  78              		.loc 1 60 0
-  79 0018 0C48     		ldr	r0, .L4+4
-  59:main.c        ****   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-  80              		.loc 1 59 0
-  81 001a 0323     		movs	r3, #3
-  82 001c 4B60     		str	r3, [r1, #4]
-  60:main.c        ****   GPIO_Init(GPIOC, &GPIO_InitStructure);
-  83              		.loc 1 60 0
-  84 001e FFF7FEFF 		bl	GPIO_Init
-  85              	.LVL3:
-  64:main.c        ****   SysTick_Config(SystemCoreClock / 1000);
-  86              		.loc 1 64 0
-  87 0022 0B4B     		ldr	r3, .L4+8
-  88              	.LVL4:
-  89              	.LBB6:
-  90              	.LBB7:
-  91              	.LBB8:
-  92              	.LBB9:
-  93              		.file 2 "StdPeriphLib/inc/core_cm3.h"
+  33              	.LVL0:
+  34              		.pad #8
+  35 0000 82B0     		sub	sp, sp, #8
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 8
+  38              		.loc 1 50 0
+  39 0002 0190     		str	r0, [sp, #4]
+  51:main.c        ****   for(; nCount!= 0;nCount--);
+  40              		.loc 1 51 0
+  41 0004 02E0     		b	.L2
+  42              	.L3:
+  43              		.loc 1 51 0 is_stmt 0 discriminator 2
+  44 0006 019B     		ldr	r3, [sp, #4]
+  45 0008 013B     		subs	r3, r3, #1
+  46              	.LVL1:
+  47 000a 0193     		str	r3, [sp, #4]
+  48              	.LVL2:
+  49              	.L2:
+  50              		.loc 1 51 0 discriminator 1
+  51 000c 019B     		ldr	r3, [sp, #4]
+  52 000e 002B     		cmp	r3, #0
+  53 0010 F9D1     		bne	.L3
+  52:main.c        **** }
+  54              		.loc 1 52 0 is_stmt 1
+  55 0012 02B0     		add	sp, sp, #8
+  56 0014 7047     		bx	lr
+  57              		.cfi_endproc
+  58              	.LFE30:
+  59              		.fnend
+  61              		.section	.text.startup.main,"ax",%progbits
+  62              		.align	1
+  63              		.global	main
+  64              		.thumb
+  65              		.thumb_func
+  67              	main:
+  68              		.fnstart
+  69              	.LFB29:
+  12:main.c        **** {
+  70              		.loc 1 12 0
+  71              		.cfi_startproc
+  72              		@ args = 0, pretend = 0, frame = 0
+  73              		@ frame_needed = 0, uses_anonymous_args = 0
+  74 0000 08B5     		push	{r3, lr}
+  75              		.save {r3, lr}
+  76              	.LCFI1:
+  77              		.cfi_def_cfa_offset 8
+  78              		.cfi_offset 3, -8
+  79              		.cfi_offset 14, -4
+  15:main.c        ****   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
+  80              		.loc 1 15 0
+  81 0002 1020     		movs	r0, #16
+  82 0004 0121     		movs	r1, #1
+  83 0006 FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
+  84              	.LVL3:
+  19:main.c        ****   GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_6 | GPIO_Pin_7;
+  85              		.loc 1 19 0
+  86 000a 1949     		ldr	r1, .L6
+  87 000c C023     		movs	r3, #192
+  88 000e 0B80     		strh	r3, [r1, #0]	@ movhi
+  20:main.c        ****   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+  89              		.loc 1 20 0
+  90 0010 1023     		movs	r3, #16
+  91 0012 8B60     		str	r3, [r1, #8]
+  22:main.c        ****   GPIO_Init(GPIOC, &GPIO_InitStructure);
+  92              		.loc 1 22 0
+  93 0014 1748     		ldr	r0, .L6+4
+  21:main.c        ****   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  94              		.loc 1 21 0
+  95 0016 0323     		movs	r3, #3
+  96 0018 4B60     		str	r3, [r1, #4]
+  22:main.c        ****   GPIO_Init(GPIOC, &GPIO_InitStructure);
+  97              		.loc 1 22 0
+  98 001a FFF7FEFF 		bl	GPIO_Init
+  99              	.LVL4:
+  26:main.c        ****   SysTick_Config(SystemCoreClock / 1000);
+ 100              		.loc 1 26 0
+ 101 001e 164B     		ldr	r3, .L6+8
+ 102              	.LVL5:
+ 103              	.LBB6:
+ 104              	.LBB7:
+ 105              	.LBB8:
+ 106              	.LBB9:
+ 107              		.file 2 "StdPeriphLib/inc/core_cm3.h"
    1:StdPeriphLib/inc/core_cm3.h **** /**************************************************************************//**
    2:StdPeriphLib/inc/core_cm3.h ****  * @file     core_cm3.h
    3:StdPeriphLib/inc/core_cm3.h ****  * @brief    CMSIS Cortex-M3 Core Peripheral Access Layer Header File
@@ -1785,21 +1751,21 @@
 1587:StdPeriphLib/inc/core_cm3.h **** {
 1588:StdPeriphLib/inc/core_cm3.h ****   if(IRQn < 0) {
 1589:StdPeriphLib/inc/core_cm3.h ****     SCB->SHP[((uint32_t)(IRQn) & 0xF)-4] = ((priority << (8 - __NVIC_PRIO_BITS)) & 0xff); } /* set 
-  94              		.loc 2 1589 0
-  95 0024 F021     		movs	r1, #240
-  96              	.LBE9:
-  97              	.LBE8:
-  98              	.LBE7:
-  99              	.LBE6:
-  64:main.c        ****   SysTick_Config(SystemCoreClock / 1000);
- 100              		.loc 1 64 0
- 101 0026 1A68     		ldr	r2, [r3, #0]
- 102 0028 4FF47A73 		mov	r3, #1000
- 103              	.LVL5:
- 104 002c B2FBF3F2 		udiv	r2, r2, r3
- 105              	.LVL6:
- 106              	.LBB13:
- 107              	.LBB12:
+ 108              		.loc 2 1589 0
+ 109 0020 F021     		movs	r1, #240
+ 110              	.LBE9:
+ 111              	.LBE8:
+ 112              	.LBE7:
+ 113              	.LBE6:
+  26:main.c        ****   SysTick_Config(SystemCoreClock / 1000);
+ 114              		.loc 1 26 0
+ 115 0022 1A68     		ldr	r2, [r3, #0]
+ 116 0024 4FF47A73 		mov	r3, #1000
+ 117              	.LVL6:
+ 118 0028 B2FBF3F2 		udiv	r2, r2, r3
+ 119              	.LVL7:
+ 120              	.LBB13:
+ 121              	.LBB12:
 1590:StdPeriphLib/inc/core_cm3.h ****   else {
 1591:StdPeriphLib/inc/core_cm3.h ****     NVIC->IP[(uint32_t)(IRQn)] = ((priority << (8 - __NVIC_PRIO_BITS)) & 0xff);    }        /* set 
 1592:StdPeriphLib/inc/core_cm3.h **** }
@@ -1909,252 +1875,226 @@
 1696:StdPeriphLib/inc/core_cm3.h ****   if (ticks > SysTick_LOAD_RELOAD_Msk)  return (1);            /* Reload value impossible */
 1697:StdPeriphLib/inc/core_cm3.h ****                                                                
 1698:StdPeriphLib/inc/core_cm3.h ****   SysTick->LOAD  = (ticks & SysTick_LOAD_RELOAD_Msk) - 1;      /* set reload register */
- 108              		.loc 2 1698 0
- 109 0030 084B     		ldr	r3, .L4+12
- 110 0032 013A     		subs	r2, r2, #1
- 111              	.LVL7:
- 112 0034 5A60     		str	r2, [r3, #4]
- 113              	.LVL8:
- 114              	.LBB11:
- 115              	.LBB10:
+ 122              		.loc 2 1698 0
+ 123 002c 134B     		ldr	r3, .L6+12
+ 124 002e 013A     		subs	r2, r2, #1
+ 125              	.LVL8:
+ 126 0030 5A60     		str	r2, [r3, #4]
+ 127              	.LVL9:
+ 128              	.LBB11:
+ 129              	.LBB10:
 1589:StdPeriphLib/inc/core_cm3.h ****     SCB->SHP[((uint32_t)(IRQn) & 0xF)-4] = ((priority << (8 - __NVIC_PRIO_BITS)) & 0xff); } /* set 
- 116              		.loc 2 1589 0
- 117 0036 084A     		ldr	r2, .L4+16
- 118              	.LVL9:
- 119 0038 82F82310 		strb	r1, [r2, #35]
- 120              	.LBE10:
- 121              	.LBE11:
+ 130              		.loc 2 1589 0
+ 131 0032 134A     		ldr	r2, .L6+16
+ 132              	.LVL10:
+ 133 0034 82F82310 		strb	r1, [r2, #35]
+ 134              	.LBE10:
+ 135              	.LBE11:
 1699:StdPeriphLib/inc/core_cm3.h ****   NVIC_SetPriority (SysTick_IRQn, (1<<__NVIC_PRIO_BITS) - 1);  /* set Priority for Cortex-M0 System
 1700:StdPeriphLib/inc/core_cm3.h ****   SysTick->VAL   = 0;                                          /* Load the SysTick Counter Value */
- 122              		.loc 2 1700 0
- 123 003c 0022     		movs	r2, #0
- 124 003e 9A60     		str	r2, [r3, #8]
+ 136              		.loc 2 1700 0
+ 137 0038 0022     		movs	r2, #0
+ 138 003a 9A60     		str	r2, [r3, #8]
 1701:StdPeriphLib/inc/core_cm3.h ****   SysTick->CTRL  = SysTick_CTRL_CLKSOURCE_Msk | 
- 125              		.loc 2 1701 0
- 126 0040 0722     		movs	r2, #7
- 127 0042 1A60     		str	r2, [r3, #0]
- 128              	.L3:
- 129 0044 FEE7     		b	.L3
- 130              	.L5:
- 131 0046 00BF     		.align	2
- 132              	.L4:
- 133 0048 00000000 		.word	GPIO_InitStructure
- 134 004c 00100140 		.word	1073811456
- 135 0050 00000000 		.word	SystemCoreClock
- 136 0054 10E000E0 		.word	-536813552
- 137 0058 00ED00E0 		.word	-536810240
- 138              	.LBE12:
- 139              	.LBE13:
- 140              		.cfi_endproc
- 141              	.LFE29:
- 142              		.fnend
- 144              		.section	.text.Delay,"ax",%progbits
- 145              		.align	1
- 146              		.global	Delay
- 147              		.thumb
- 148              		.thumb_func
- 150              	Delay:
- 151              		.fnstart
- 152              	.LFB31:
-  99:main.c        **** 
- 100:main.c        **** 
- 101:main.c        **** 
- 102:main.c        **** /*******************************************************************************
- 103:main.c        **** * Function Name  : Delay
- 104:main.c        **** * Description    : Inserts a delay time.
- 105:main.c        **** * Input          : nCount: specifies the delay time length.
- 106:main.c        **** * Output         : None
- 107:main.c        **** * Return         : None
- 108:main.c        **** *******************************************************************************/
- 109:main.c        **** void Delay(vu32 nCount)
- 110:main.c        **** {
- 153              		.loc 1 110 0
- 154              		.cfi_startproc
- 155              		@ args = 0, pretend = 0, frame = 8
- 156              		@ frame_needed = 0, uses_anonymous_args = 0
- 157              		@ link register save eliminated.
- 158              	.LVL10:
- 159              		.pad #8
- 160 0000 82B0     		sub	sp, sp, #8
- 161              	.LCFI1:
- 162              		.cfi_def_cfa_offset 8
- 163              		.loc 1 110 0
- 164 0002 0190     		str	r0, [sp, #4]
- 111:main.c        ****   for(; nCount!= 0;nCount--);
- 165              		.loc 1 111 0
- 166 0004 02E0     		b	.L7
- 167              	.L8:
- 168              		.loc 1 111 0 is_stmt 0 discriminator 2
- 169 0006 019B     		ldr	r3, [sp, #4]
- 170 0008 013B     		subs	r3, r3, #1
- 171              	.LVL11:
- 172 000a 0193     		str	r3, [sp, #4]
- 173              	.LVL12:
- 174              	.L7:
- 175              		.loc 1 111 0 discriminator 1
- 176 000c 019B     		ldr	r3, [sp, #4]
- 177 000e 002B     		cmp	r3, #0
- 178 0010 F9D1     		bne	.L8
- 112:main.c        **** }
- 179              		.loc 1 112 0 is_stmt 1
- 180 0012 02B0     		add	sp, sp, #8
- 181 0014 7047     		bx	lr
- 182              		.cfi_endproc
- 183              	.LFE31:
- 184              		.fnend
- 186              		.section	.text.LED_Flash,"ax",%progbits
- 187              		.align	1
- 188              		.global	LED_Flash
- 189              		.thumb
- 190              		.thumb_func
- 192              	LED_Flash:
- 193              		.fnstart
- 194              	.LFB32:
- 113:main.c        **** 
- 114:main.c        **** 
- 115:main.c        **** 
- 116:main.c        **** 
- 117:main.c        **** 
- 118:main.c        **** void LED_Flash(void)
- 119:main.c        **** {
- 195              		.loc 1 119 0
- 196              		.cfi_startproc
- 197              		@ args = 0, pretend = 0, frame = 0
- 198              		@ frame_needed = 0, uses_anonymous_args = 0
- 199              		@ link register save eliminated.
- 120:main.c        **** 
- 121:main.c        ****   static int f=0;
- 122:main.c        ****    
- 123:main.c        ****    if(f==0)
- 200              		.loc 1 123 0
- 201 0000 074B     		ldr	r3, .L11
- 202 0002 1A68     		ldr	r2, [r3, #0]
- 203 0004 2AB9     		cbnz	r2, .L10
- 124:main.c        ****    {
- 125:main.c        ****       f=1;
- 126:main.c        ****       GPIO_SetBits(GPIOC, GPIO_Pin_6);//
- 204              		.loc 1 126 0
- 205 0006 0748     		ldr	r0, .L11+4
- 125:main.c        ****       f=1;
- 206              		.loc 1 125 0
- 207 0008 0122     		movs	r2, #1
- 208              		.loc 1 126 0
- 209 000a 4021     		movs	r1, #64
- 125:main.c        ****       f=1;
- 210              		.loc 1 125 0
- 211 000c 1A60     		str	r2, [r3, #0]
- 127:main.c        ****    }
- 128:main.c        ****    else
- 129:main.c        ****    {
- 130:main.c        ****       f=0;
- 131:main.c        ****       GPIO_ResetBits(GPIOC, GPIO_Pin_6);//
- 132:main.c        ****    }
- 133:main.c        ****   
- 134:main.c        **** }
- 212              		.loc 1 134 0
- 126:main.c        ****       GPIO_SetBits(GPIOC, GPIO_Pin_6);//
- 213              		.loc 1 126 0
- 214 000e FFF7FEBF 		b	GPIO_SetBits
- 215              	.LVL13:
- 216              	.L10:
- 131:main.c        ****       GPIO_ResetBits(GPIOC, GPIO_Pin_6);//
- 217              		.loc 1 131 0
- 218 0012 0448     		ldr	r0, .L11+4
- 130:main.c        ****       f=0;
- 219              		.loc 1 130 0
- 220 0014 0022     		movs	r2, #0
- 131:main.c        ****       GPIO_ResetBits(GPIOC, GPIO_Pin_6);//
- 221              		.loc 1 131 0
- 222 0016 4021     		movs	r1, #64
- 130:main.c        ****       f=0;
- 223              		.loc 1 130 0
- 224 0018 1A60     		str	r2, [r3, #0]
- 225              		.loc 1 134 0
- 131:main.c        ****       GPIO_ResetBits(GPIOC, GPIO_Pin_6);//
- 226              		.loc 1 131 0
- 227 001a FFF7FEBF 		b	GPIO_ResetBits
- 228              	.LVL14:
- 229              	.L12:
- 230 001e 00BF     		.align	2
+ 139              		.loc 2 1701 0
+ 140 003c 0722     		movs	r2, #7
+ 141 003e 1A60     		str	r2, [r3, #0]
+ 142              	.LVL11:
+ 143              	.L5:
+ 144              	.LBE12:
+ 145              	.LBE13:
+  33:main.c        ****     GPIO_SetBits(GPIOC, GPIO_Pin_6);
+ 146              		.loc 1 33 0 discriminator 1
+ 147 0040 4021     		movs	r1, #64
+ 148 0042 0C48     		ldr	r0, .L6+4
+ 149 0044 FFF7FEFF 		bl	GPIO_SetBits
+ 150              	.LVL12:
+  34:main.c        ****     GPIO_ResetBits(GPIOC, GPIO_Pin_7);
+ 151              		.loc 1 34 0 discriminator 1
+ 152 0048 8021     		movs	r1, #128
+ 153 004a 0A48     		ldr	r0, .L6+4
+ 154 004c FFF7FEFF 		bl	GPIO_ResetBits
+ 155              	.LVL13:
+  36:main.c        ****     Delay(0xDFFFF);
+ 156              		.loc 1 36 0 discriminator 1
+ 157 0050 0C48     		ldr	r0, .L6+20
+ 158 0052 FFF7FEFF 		bl	Delay
+ 159              	.LVL14:
+  38:main.c        ****     GPIO_ResetBits(GPIOC, GPIO_Pin_6);
+ 160              		.loc 1 38 0 discriminator 1
+ 161 0056 4021     		movs	r1, #64
+ 162 0058 0648     		ldr	r0, .L6+4
+ 163 005a FFF7FEFF 		bl	GPIO_ResetBits
+ 164              	.LVL15:
+  39:main.c        ****     GPIO_SetBits(GPIOC, GPIO_Pin_7);
+ 165              		.loc 1 39 0 discriminator 1
+ 166 005e 0548     		ldr	r0, .L6+4
+ 167 0060 8021     		movs	r1, #128
+ 168 0062 FFF7FEFF 		bl	GPIO_SetBits
+ 169              	.LVL16:
+  41:main.c        ****     Delay(0xDFFFF);
+ 170              		.loc 1 41 0 discriminator 1
+ 171 0066 0748     		ldr	r0, .L6+20
+ 172 0068 FFF7FEFF 		bl	Delay
+ 173              	.LVL17:
+ 174 006c E8E7     		b	.L5
+ 175              	.L7:
+ 176 006e 00BF     		.align	2
+ 177              	.L6:
+ 178 0070 00000000 		.word	GPIO_InitStructure
+ 179 0074 00100140 		.word	1073811456
+ 180 0078 00000000 		.word	SystemCoreClock
+ 181 007c 10E000E0 		.word	-536813552
+ 182 0080 00ED00E0 		.word	-536810240
+ 183 0084 FFFF0D00 		.word	917503
+ 184              		.cfi_endproc
+ 185              	.LFE29:
+ 186              		.fnend
+ 188              		.section	.text.LED_Flash,"ax",%progbits
+ 189              		.align	1
+ 190              		.global	LED_Flash
+ 191              		.thumb
+ 192              		.thumb_func
+ 194              	LED_Flash:
+ 195              		.fnstart
+ 196              	.LFB31:
+  53:main.c        **** 
+  54:main.c        **** 
+  55:main.c        **** void LED_Flash(void)
+  56:main.c        **** {
+ 197              		.loc 1 56 0
+ 198              		.cfi_startproc
+ 199              		@ args = 0, pretend = 0, frame = 0
+ 200              		@ frame_needed = 0, uses_anonymous_args = 0
+ 201              		@ link register save eliminated.
+  57:main.c        **** 
+  58:main.c        ****   static int f=0;
+  59:main.c        ****    
+  60:main.c        ****    if(f==0)
+ 202              		.loc 1 60 0
+ 203 0000 074B     		ldr	r3, .L10
+ 204 0002 1A68     		ldr	r2, [r3, #0]
+ 205 0004 2AB9     		cbnz	r2, .L9
+  61:main.c        ****    {
+  62:main.c        ****       f=1;
+  63:main.c        ****       GPIO_SetBits(GPIOC, GPIO_Pin_6);//
+ 206              		.loc 1 63 0
+ 207 0006 0748     		ldr	r0, .L10+4
+  62:main.c        ****       f=1;
+ 208              		.loc 1 62 0
+ 209 0008 0122     		movs	r2, #1
+ 210              		.loc 1 63 0
+ 211 000a 4021     		movs	r1, #64
+  62:main.c        ****       f=1;
+ 212              		.loc 1 62 0
+ 213 000c 1A60     		str	r2, [r3, #0]
+  64:main.c        ****    }
+  65:main.c        ****    else
+  66:main.c        ****    {
+  67:main.c        ****       f=0;
+  68:main.c        ****       GPIO_ResetBits(GPIOC, GPIO_Pin_6);//
+  69:main.c        ****    }
+  70:main.c        ****   
+  71:main.c        **** }
+ 214              		.loc 1 71 0
+  63:main.c        ****       GPIO_SetBits(GPIOC, GPIO_Pin_6);//
+ 215              		.loc 1 63 0
+ 216 000e FFF7FEBF 		b	GPIO_SetBits
+ 217              	.LVL18:
+ 218              	.L9:
+  68:main.c        ****       GPIO_ResetBits(GPIOC, GPIO_Pin_6);//
+ 219              		.loc 1 68 0
+ 220 0012 0448     		ldr	r0, .L10+4
+  67:main.c        ****       f=0;
+ 221              		.loc 1 67 0
+ 222 0014 0022     		movs	r2, #0
+  68:main.c        ****       GPIO_ResetBits(GPIOC, GPIO_Pin_6);//
+ 223              		.loc 1 68 0
+ 224 0016 4021     		movs	r1, #64
+  67:main.c        ****       f=0;
+ 225              		.loc 1 67 0
+ 226 0018 1A60     		str	r2, [r3, #0]
+ 227              		.loc 1 71 0
+  68:main.c        ****       GPIO_ResetBits(GPIOC, GPIO_Pin_6);//
+ 228              		.loc 1 68 0
+ 229 001a FFF7FEBF 		b	GPIO_ResetBits
+ 230              	.LVL19:
  231              	.L11:
- 232 0020 00000000 		.word	.LANCHOR0
- 233 0024 00100140 		.word	1073811456
- 234              		.cfi_endproc
- 235              	.LFE32:
- 236              		.fnend
- 238              		.section	.text.SysTick_Handler,"ax",%progbits
- 239              		.align	1
- 240              		.global	SysTick_Handler
- 241              		.thumb
- 242              		.thumb_func
- 244              	SysTick_Handler:
- 245              		.fnstart
- 246              	.LFB33:
- 135:main.c        **** 
- 136:main.c        **** 
- 137:main.c        **** void SysTick_Handler(void) {
- 247              		.loc 1 137 0
- 248              		.cfi_startproc
- 249              		@ args = 0, pretend = 0, frame = 0
- 250              		@ frame_needed = 0, uses_anonymous_args = 0
- 251              		@ link register save eliminated.
- 138:main.c        **** 
- 139:main.c        ****    LED_Flash();
- 140:main.c        **** 
- 141:main.c        **** }
- 252              		.loc 1 141 0
- 139:main.c        ****    LED_Flash();
- 253              		.loc 1 139 0
- 254 0000 FFF7FEBF 		b	LED_Flash
- 255              	.LVL15:
- 256              		.cfi_endproc
- 257              	.LFE33:
- 258              		.fnend
- 260              		.comm	GPIO_InitStructure,12,4
- 261              		.section	.bss.f.5372,"aw",%nobits
- 262              		.align	2
- 263              	.LANCHOR0 = . + 0
- 266              	f.5372:
- 267 0000 00000000 		.space	4
- 268              		.text
- 269              	.Letext0:
- 270              		.file 3 "StdPeriphLib/inc/stm32f10x.h"
- 271              		.file 4 "/home/cnovak/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_GNU_Linux/bin/../arm-none-linux
- 272              		.file 5 "StdPeriphLib/inc/stm32f10x_gpio.h"
- 273              		.file 6 "StdPeriphLib/inc/system_stm32f10x.h"
- 274              		.file 7 "StdPeriphLib/inc/misc.h"
- 275              		.file 8 "StdPeriphLib/inc/stm32f10x_rcc.h"
+ 232 001e 00BF     		.align	2
+ 233              	.L10:
+ 234 0020 00000000 		.word	.LANCHOR0
+ 235 0024 00100140 		.word	1073811456
+ 236              		.cfi_endproc
+ 237              	.LFE31:
+ 238              		.fnend
+ 240              		.section	.text.SysTick_Handler,"ax",%progbits
+ 241              		.align	1
+ 242              		.global	SysTick_Handler
+ 243              		.thumb
+ 244              		.thumb_func
+ 246              	SysTick_Handler:
+ 247              		.fnstart
+ 248              	.LFB32:
+  72:main.c        **** 
+  73:main.c        **** 
+  74:main.c        **** void SysTick_Handler(void) {
+ 249              		.loc 1 74 0
+ 250              		.cfi_startproc
+ 251              		@ args = 0, pretend = 0, frame = 0
+ 252              		@ frame_needed = 0, uses_anonymous_args = 0
+ 253              		@ link register save eliminated.
+  75:main.c        **** 
+  76:main.c        ****    LED_Flash();
+  77:main.c        **** 
+  78:main.c        **** }
+ 254              		.loc 1 78 0
+  76:main.c        ****    LED_Flash();
+ 255              		.loc 1 76 0
+ 256 0000 FFF7FEBF 		b	LED_Flash
+ 257              	.LVL20:
+ 258              		.cfi_endproc
+ 259              	.LFE32:
+ 260              		.fnend
+ 262              		.comm	GPIO_InitStructure,12,4
+ 263              		.section	.bss.f.5365,"aw",%nobits
+ 264              		.align	2
+ 265              	.LANCHOR0 = . + 0
+ 268              	f.5365:
+ 269 0000 00000000 		.space	4
+ 270              		.text
+ 271              	.Letext0:
+ 272              		.file 3 "StdPeriphLib/inc/stm32f10x.h"
+ 273              		.file 4 "/home/cnovak/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_GNU_Linux/bin/../arm-none-linux
+ 274              		.file 5 "StdPeriphLib/inc/stm32f10x_gpio.h"
+ 275              		.file 6 "StdPeriphLib/inc/system_stm32f10x.h"
+ 276              		.file 7 "StdPeriphLib/inc/stm32f10x_rcc.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-     /tmp/ccbF9Ht7.s:19     .text.NVIC_Configuration:00000000 $t
-     /tmp/ccbF9Ht7.s:24     .text.NVIC_Configuration:00000000 NVIC_Configuration
-.ARM.exidx.text.NVIC_Configuration:00000000 $d
-     /tmp/ccbF9Ht7.s:45     .text.startup.main:00000000 $t
-     /tmp/ccbF9Ht7.s:50     .text.startup.main:00000000 main
-     /tmp/ccbF9Ht7.s:133    .text.startup.main:00000048 $d
+     /tmp/cc3kJbdr.s:19     .text.Delay:00000000 $t
+     /tmp/cc3kJbdr.s:24     .text.Delay:00000000 Delay
+            .ARM.exidx.text.Delay:00000000 $d
+     /tmp/cc3kJbdr.s:62     .text.startup.main:00000000 $t
+     /tmp/cc3kJbdr.s:67     .text.startup.main:00000000 main
+     /tmp/cc3kJbdr.s:178    .text.startup.main:00000070 $d
                             *COM*:0000000c GPIO_InitStructure
      .ARM.extab.text.startup.main:00000000 $d
      .ARM.exidx.text.startup.main:00000000 $d
-     /tmp/ccbF9Ht7.s:145    .text.Delay:00000000 $t
-     /tmp/ccbF9Ht7.s:150    .text.Delay:00000000 Delay
-            .ARM.exidx.text.Delay:00000000 $d
-     /tmp/ccbF9Ht7.s:187    .text.LED_Flash:00000000 $t
-     /tmp/ccbF9Ht7.s:192    .text.LED_Flash:00000000 LED_Flash
-     /tmp/ccbF9Ht7.s:232    .text.LED_Flash:00000020 $d
+     /tmp/cc3kJbdr.s:189    .text.LED_Flash:00000000 $t
+     /tmp/cc3kJbdr.s:194    .text.LED_Flash:00000000 LED_Flash
+     /tmp/cc3kJbdr.s:234    .text.LED_Flash:00000020 $d
         .ARM.exidx.text.LED_Flash:00000000 $d
-     /tmp/ccbF9Ht7.s:239    .text.SysTick_Handler:00000000 $t
-     /tmp/ccbF9Ht7.s:244    .text.SysTick_Handler:00000000 SysTick_Handler
+     /tmp/cc3kJbdr.s:241    .text.SysTick_Handler:00000000 $t
+     /tmp/cc3kJbdr.s:246    .text.SysTick_Handler:00000000 SysTick_Handler
   .ARM.exidx.text.SysTick_Handler:00000000 $d
-     /tmp/ccbF9Ht7.s:262    .bss.f.5372:00000000 $d
-     /tmp/ccbF9Ht7.s:266    .bss.f.5372:00000000 f.5372
+     /tmp/cc3kJbdr.s:264    .bss.f.5365:00000000 $d
+     /tmp/cc3kJbdr.s:268    .bss.f.5365:00000000 f.5365
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS
-NVIC_SetVectorTable
 __aeabi_unwind_cpp_pr0
 RCC_APB2PeriphClockCmd
 GPIO_Init
-SystemCoreClock
-__aeabi_unwind_cpp_pr1
 GPIO_SetBits
 GPIO_ResetBits
+SystemCoreClock
+__aeabi_unwind_cpp_pr1
