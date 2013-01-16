@@ -1,0 +1,1 @@
+arm-none-eabi-gdb -x flash.cmd

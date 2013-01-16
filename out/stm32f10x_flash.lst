@@ -3363,115 +3363,115 @@
  1583              		.file 5 "StdPeriphLib/inc/core_cm3.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f10x_flash.c
-     /tmp/ccPdhsky.s:19     .text.FLASH_SetLatency:00000000 $t
-     /tmp/ccPdhsky.s:24     .text.FLASH_SetLatency:00000000 FLASH_SetLatency
-     /tmp/ccPdhsky.s:50     .text.FLASH_SetLatency:00000010 $d
+     /tmp/ccM5q8zb.s:19     .text.FLASH_SetLatency:00000000 $t
+     /tmp/ccM5q8zb.s:24     .text.FLASH_SetLatency:00000000 FLASH_SetLatency
+     /tmp/ccM5q8zb.s:50     .text.FLASH_SetLatency:00000010 $d
  .ARM.exidx.text.FLASH_SetLatency:00000000 $d
-     /tmp/ccPdhsky.s:56     .text.FLASH_HalfCycleAccessCmd:00000000 $t
-     /tmp/ccPdhsky.s:61     .text.FLASH_HalfCycleAccessCmd:00000000 FLASH_HalfCycleAccessCmd
-     /tmp/ccPdhsky.s:84     .text.FLASH_HalfCycleAccessCmd:00000014 $d
+     /tmp/ccM5q8zb.s:56     .text.FLASH_HalfCycleAccessCmd:00000000 $t
+     /tmp/ccM5q8zb.s:61     .text.FLASH_HalfCycleAccessCmd:00000000 FLASH_HalfCycleAccessCmd
+     /tmp/ccM5q8zb.s:84     .text.FLASH_HalfCycleAccessCmd:00000014 $d
 .ARM.exidx.text.FLASH_HalfCycleAccessCmd:00000000 $d
-     /tmp/ccPdhsky.s:90     .text.FLASH_PrefetchBufferCmd:00000000 $t
-     /tmp/ccPdhsky.s:95     .text.FLASH_PrefetchBufferCmd:00000000 FLASH_PrefetchBufferCmd
-     /tmp/ccPdhsky.s:118    .text.FLASH_PrefetchBufferCmd:00000014 $d
+     /tmp/ccM5q8zb.s:90     .text.FLASH_PrefetchBufferCmd:00000000 $t
+     /tmp/ccM5q8zb.s:95     .text.FLASH_PrefetchBufferCmd:00000000 FLASH_PrefetchBufferCmd
+     /tmp/ccM5q8zb.s:118    .text.FLASH_PrefetchBufferCmd:00000014 $d
 .ARM.exidx.text.FLASH_PrefetchBufferCmd:00000000 $d
-     /tmp/ccPdhsky.s:124    .text.FLASH_Unlock:00000000 $t
-     /tmp/ccPdhsky.s:129    .text.FLASH_Unlock:00000000 FLASH_Unlock
-     /tmp/ccPdhsky.s:148    .text.FLASH_Unlock:00000010 $d
+     /tmp/ccM5q8zb.s:124    .text.FLASH_Unlock:00000000 $t
+     /tmp/ccM5q8zb.s:129    .text.FLASH_Unlock:00000000 FLASH_Unlock
+     /tmp/ccM5q8zb.s:148    .text.FLASH_Unlock:00000010 $d
      .ARM.exidx.text.FLASH_Unlock:00000000 $d
-     /tmp/ccPdhsky.s:155    .text.FLASH_UnlockBank1:00000000 $t
-     /tmp/ccPdhsky.s:160    .text.FLASH_UnlockBank1:00000000 FLASH_UnlockBank1
-     /tmp/ccPdhsky.s:179    .text.FLASH_UnlockBank1:00000010 $d
+     /tmp/ccM5q8zb.s:155    .text.FLASH_UnlockBank1:00000000 $t
+     /tmp/ccM5q8zb.s:160    .text.FLASH_UnlockBank1:00000000 FLASH_UnlockBank1
+     /tmp/ccM5q8zb.s:179    .text.FLASH_UnlockBank1:00000010 $d
 .ARM.exidx.text.FLASH_UnlockBank1:00000000 $d
-     /tmp/ccPdhsky.s:186    .text.FLASH_Lock:00000000 $t
-     /tmp/ccPdhsky.s:191    .text.FLASH_Lock:00000000 FLASH_Lock
-     /tmp/ccPdhsky.s:208    .text.FLASH_Lock:0000000c $d
+     /tmp/ccM5q8zb.s:186    .text.FLASH_Lock:00000000 $t
+     /tmp/ccM5q8zb.s:191    .text.FLASH_Lock:00000000 FLASH_Lock
+     /tmp/ccM5q8zb.s:208    .text.FLASH_Lock:0000000c $d
        .ARM.exidx.text.FLASH_Lock:00000000 $d
-     /tmp/ccPdhsky.s:214    .text.FLASH_LockBank1:00000000 $t
-     /tmp/ccPdhsky.s:219    .text.FLASH_LockBank1:00000000 FLASH_LockBank1
-     /tmp/ccPdhsky.s:236    .text.FLASH_LockBank1:0000000c $d
+     /tmp/ccM5q8zb.s:214    .text.FLASH_LockBank1:00000000 $t
+     /tmp/ccM5q8zb.s:219    .text.FLASH_LockBank1:00000000 FLASH_LockBank1
+     /tmp/ccM5q8zb.s:236    .text.FLASH_LockBank1:0000000c $d
   .ARM.exidx.text.FLASH_LockBank1:00000000 $d
-     /tmp/ccPdhsky.s:242    .text.FLASH_GetUserOptionByte:00000000 $t
-     /tmp/ccPdhsky.s:247    .text.FLASH_GetUserOptionByte:00000000 FLASH_GetUserOptionByte
-     /tmp/ccPdhsky.s:264    .text.FLASH_GetUserOptionByte:00000008 $d
+     /tmp/ccM5q8zb.s:242    .text.FLASH_GetUserOptionByte:00000000 $t
+     /tmp/ccM5q8zb.s:247    .text.FLASH_GetUserOptionByte:00000000 FLASH_GetUserOptionByte
+     /tmp/ccM5q8zb.s:264    .text.FLASH_GetUserOptionByte:00000008 $d
 .ARM.exidx.text.FLASH_GetUserOptionByte:00000000 $d
-     /tmp/ccPdhsky.s:270    .text.FLASH_GetWriteProtectionOptionByte:00000000 $t
-     /tmp/ccPdhsky.s:275    .text.FLASH_GetWriteProtectionOptionByte:00000000 FLASH_GetWriteProtectionOptionByte
-     /tmp/ccPdhsky.s:291    .text.FLASH_GetWriteProtectionOptionByte:00000008 $d
+     /tmp/ccM5q8zb.s:270    .text.FLASH_GetWriteProtectionOptionByte:00000000 $t
+     /tmp/ccM5q8zb.s:275    .text.FLASH_GetWriteProtectionOptionByte:00000000 FLASH_GetWriteProtectionOptionByte
+     /tmp/ccM5q8zb.s:291    .text.FLASH_GetWriteProtectionOptionByte:00000008 $d
 .ARM.exidx.text.FLASH_GetWriteProtectionOptionByte:00000000 $d
-     /tmp/ccPdhsky.s:297    .text.FLASH_GetReadOutProtectionStatus:00000000 $t
-     /tmp/ccPdhsky.s:302    .text.FLASH_GetReadOutProtectionStatus:00000000 FLASH_GetReadOutProtectionStatus
-     /tmp/ccPdhsky.s:322    .text.FLASH_GetReadOutProtectionStatus:0000000c $d
+     /tmp/ccM5q8zb.s:297    .text.FLASH_GetReadOutProtectionStatus:00000000 $t
+     /tmp/ccM5q8zb.s:302    .text.FLASH_GetReadOutProtectionStatus:00000000 FLASH_GetReadOutProtectionStatus
+     /tmp/ccM5q8zb.s:322    .text.FLASH_GetReadOutProtectionStatus:0000000c $d
 .ARM.exidx.text.FLASH_GetReadOutProtectionStatus:00000000 $d
-     /tmp/ccPdhsky.s:328    .text.FLASH_GetPrefetchBufferStatus:00000000 $t
-     /tmp/ccPdhsky.s:333    .text.FLASH_GetPrefetchBufferStatus:00000000 FLASH_GetPrefetchBufferStatus
-     /tmp/ccPdhsky.s:353    .text.FLASH_GetPrefetchBufferStatus:0000000c $d
+     /tmp/ccM5q8zb.s:328    .text.FLASH_GetPrefetchBufferStatus:00000000 $t
+     /tmp/ccM5q8zb.s:333    .text.FLASH_GetPrefetchBufferStatus:00000000 FLASH_GetPrefetchBufferStatus
+     /tmp/ccM5q8zb.s:353    .text.FLASH_GetPrefetchBufferStatus:0000000c $d
 .ARM.exidx.text.FLASH_GetPrefetchBufferStatus:00000000 $d
-     /tmp/ccPdhsky.s:359    .text.FLASH_ITConfig:00000000 $t
-     /tmp/ccPdhsky.s:364    .text.FLASH_ITConfig:00000000 FLASH_ITConfig
-     /tmp/ccPdhsky.s:393    .text.FLASH_ITConfig:00000014 $d
+     /tmp/ccM5q8zb.s:359    .text.FLASH_ITConfig:00000000 $t
+     /tmp/ccM5q8zb.s:364    .text.FLASH_ITConfig:00000000 FLASH_ITConfig
+     /tmp/ccM5q8zb.s:393    .text.FLASH_ITConfig:00000014 $d
    .ARM.exidx.text.FLASH_ITConfig:00000000 $d
-     /tmp/ccPdhsky.s:399    .text.FLASH_GetFlagStatus:00000000 $t
-     /tmp/ccPdhsky.s:404    .text.FLASH_GetFlagStatus:00000000 FLASH_GetFlagStatus
-     /tmp/ccPdhsky.s:436    .text.FLASH_GetFlagStatus:0000001c $d
+     /tmp/ccM5q8zb.s:399    .text.FLASH_GetFlagStatus:00000000 $t
+     /tmp/ccM5q8zb.s:404    .text.FLASH_GetFlagStatus:00000000 FLASH_GetFlagStatus
+     /tmp/ccM5q8zb.s:436    .text.FLASH_GetFlagStatus:0000001c $d
 .ARM.exidx.text.FLASH_GetFlagStatus:00000000 $d
-     /tmp/ccPdhsky.s:442    .text.FLASH_ClearFlag:00000000 $t
-     /tmp/ccPdhsky.s:447    .text.FLASH_ClearFlag:00000000 FLASH_ClearFlag
-     /tmp/ccPdhsky.s:463    .text.FLASH_ClearFlag:00000008 $d
+     /tmp/ccM5q8zb.s:442    .text.FLASH_ClearFlag:00000000 $t
+     /tmp/ccM5q8zb.s:447    .text.FLASH_ClearFlag:00000000 FLASH_ClearFlag
+     /tmp/ccM5q8zb.s:463    .text.FLASH_ClearFlag:00000008 $d
   .ARM.exidx.text.FLASH_ClearFlag:00000000 $d
-     /tmp/ccPdhsky.s:469    .text.FLASH_GetStatus:00000000 $t
-     /tmp/ccPdhsky.s:474    .text.FLASH_GetStatus:00000000 FLASH_GetStatus
-     /tmp/ccPdhsky.s:513    .text.FLASH_GetStatus:00000024 $d
+     /tmp/ccM5q8zb.s:469    .text.FLASH_GetStatus:00000000 $t
+     /tmp/ccM5q8zb.s:474    .text.FLASH_GetStatus:00000000 FLASH_GetStatus
+     /tmp/ccM5q8zb.s:513    .text.FLASH_GetStatus:00000024 $d
   .ARM.exidx.text.FLASH_GetStatus:00000000 $d
-     /tmp/ccPdhsky.s:519    .text.FLASH_GetBank1Status:00000000 $t
-     /tmp/ccPdhsky.s:524    .text.FLASH_GetBank1Status:00000000 FLASH_GetBank1Status
-     /tmp/ccPdhsky.s:567    .text.FLASH_GetBank1Status:00000024 $d
+     /tmp/ccM5q8zb.s:519    .text.FLASH_GetBank1Status:00000000 $t
+     /tmp/ccM5q8zb.s:524    .text.FLASH_GetBank1Status:00000000 FLASH_GetBank1Status
+     /tmp/ccM5q8zb.s:567    .text.FLASH_GetBank1Status:00000024 $d
 .ARM.exidx.text.FLASH_GetBank1Status:00000000 $d
-     /tmp/ccPdhsky.s:573    .text.FLASH_WaitForLastOperation:00000000 $t
-     /tmp/ccPdhsky.s:578    .text.FLASH_WaitForLastOperation:00000000 FLASH_WaitForLastOperation
+     /tmp/ccM5q8zb.s:573    .text.FLASH_WaitForLastOperation:00000000 $t
+     /tmp/ccM5q8zb.s:578    .text.FLASH_WaitForLastOperation:00000000 FLASH_WaitForLastOperation
 .ARM.exidx.text.FLASH_WaitForLastOperation:00000000 $d
-     /tmp/ccPdhsky.s:630    .text.FLASH_UserOptionByteConfig:00000000 $t
-     /tmp/ccPdhsky.s:635    .text.FLASH_UserOptionByteConfig:00000000 FLASH_UserOptionByteConfig
-     /tmp/ccPdhsky.s:706    .text.FLASH_UserOptionByteConfig:0000004c $d
+     /tmp/ccM5q8zb.s:630    .text.FLASH_UserOptionByteConfig:00000000 $t
+     /tmp/ccM5q8zb.s:635    .text.FLASH_UserOptionByteConfig:00000000 FLASH_UserOptionByteConfig
+     /tmp/ccM5q8zb.s:706    .text.FLASH_UserOptionByteConfig:0000004c $d
 .ARM.exidx.text.FLASH_UserOptionByteConfig:00000000 $d
-     /tmp/ccPdhsky.s:714    .text.FLASH_ReadOutProtection:00000000 $t
-     /tmp/ccPdhsky.s:719    .text.FLASH_ReadOutProtection:00000000 FLASH_ReadOutProtection
-     /tmp/ccPdhsky.s:827    .text.FLASH_ReadOutProtection:00000084 $d
+     /tmp/ccM5q8zb.s:714    .text.FLASH_ReadOutProtection:00000000 $t
+     /tmp/ccM5q8zb.s:719    .text.FLASH_ReadOutProtection:00000000 FLASH_ReadOutProtection
+     /tmp/ccM5q8zb.s:827    .text.FLASH_ReadOutProtection:00000084 $d
 .ARM.exidx.text.FLASH_ReadOutProtection:00000000 $d
-     /tmp/ccPdhsky.s:835    .text.FLASH_EnableWriteProtection:00000000 $t
-     /tmp/ccPdhsky.s:840    .text.FLASH_EnableWriteProtection:00000000 FLASH_EnableWriteProtection
-     /tmp/ccPdhsky.s:989    .text.FLASH_EnableWriteProtection:000000a0 $d
+     /tmp/ccM5q8zb.s:835    .text.FLASH_EnableWriteProtection:00000000 $t
+     /tmp/ccM5q8zb.s:840    .text.FLASH_EnableWriteProtection:00000000 FLASH_EnableWriteProtection
+     /tmp/ccM5q8zb.s:989    .text.FLASH_EnableWriteProtection:000000a0 $d
 .ARM.exidx.text.FLASH_EnableWriteProtection:00000000 $d
-     /tmp/ccPdhsky.s:997    .text.FLASH_ProgramOptionByteData:00000000 $t
-     /tmp/ccPdhsky.s:1002   .text.FLASH_ProgramOptionByteData:00000000 FLASH_ProgramOptionByteData
-     /tmp/ccPdhsky.s:1065   .text.FLASH_ProgramOptionByteData:00000040 $d
+     /tmp/ccM5q8zb.s:997    .text.FLASH_ProgramOptionByteData:00000000 $t
+     /tmp/ccM5q8zb.s:1002   .text.FLASH_ProgramOptionByteData:00000000 FLASH_ProgramOptionByteData
+     /tmp/ccM5q8zb.s:1065   .text.FLASH_ProgramOptionByteData:00000040 $d
 .ARM.exidx.text.FLASH_ProgramOptionByteData:00000000 $d
-     /tmp/ccPdhsky.s:1072   .text.FLASH_ProgramHalfWord:00000000 $t
-     /tmp/ccPdhsky.s:1077   .text.FLASH_ProgramHalfWord:00000000 FLASH_ProgramHalfWord
-     /tmp/ccPdhsky.s:1131   .text.FLASH_ProgramHalfWord:00000034 $d
+     /tmp/ccM5q8zb.s:1072   .text.FLASH_ProgramHalfWord:00000000 $t
+     /tmp/ccM5q8zb.s:1077   .text.FLASH_ProgramHalfWord:00000000 FLASH_ProgramHalfWord
+     /tmp/ccM5q8zb.s:1131   .text.FLASH_ProgramHalfWord:00000034 $d
 .ARM.exidx.text.FLASH_ProgramHalfWord:00000000 $d
-     /tmp/ccPdhsky.s:1137   .text.FLASH_ProgramWord:00000000 $t
-     /tmp/ccPdhsky.s:1142   .text.FLASH_ProgramWord:00000000 FLASH_ProgramWord
-     /tmp/ccPdhsky.s:1222   .text.FLASH_ProgramWord:0000004c $d
+     /tmp/ccM5q8zb.s:1137   .text.FLASH_ProgramWord:00000000 $t
+     /tmp/ccM5q8zb.s:1142   .text.FLASH_ProgramWord:00000000 FLASH_ProgramWord
+     /tmp/ccM5q8zb.s:1222   .text.FLASH_ProgramWord:0000004c $d
 .ARM.exidx.text.FLASH_ProgramWord:00000000 $d
-     /tmp/ccPdhsky.s:1228   .text.FLASH_EraseOptionBytes:00000000 $t
-     /tmp/ccPdhsky.s:1233   .text.FLASH_EraseOptionBytes:00000000 FLASH_EraseOptionBytes
-     /tmp/ccPdhsky.s:1330   .text.FLASH_EraseOptionBytes:00000074 $d
+     /tmp/ccM5q8zb.s:1228   .text.FLASH_EraseOptionBytes:00000000 $t
+     /tmp/ccM5q8zb.s:1233   .text.FLASH_EraseOptionBytes:00000000 FLASH_EraseOptionBytes
+     /tmp/ccM5q8zb.s:1330   .text.FLASH_EraseOptionBytes:00000074 $d
 .ARM.exidx.text.FLASH_EraseOptionBytes:00000000 $d
-     /tmp/ccPdhsky.s:1338   .text.FLASH_EraseAllPages:00000000 $t
-     /tmp/ccPdhsky.s:1343   .text.FLASH_EraseAllPages:00000000 FLASH_EraseAllPages
-     /tmp/ccPdhsky.s:1391   .text.FLASH_EraseAllPages:00000034 $d
+     /tmp/ccM5q8zb.s:1338   .text.FLASH_EraseAllPages:00000000 $t
+     /tmp/ccM5q8zb.s:1343   .text.FLASH_EraseAllPages:00000000 FLASH_EraseAllPages
+     /tmp/ccM5q8zb.s:1391   .text.FLASH_EraseAllPages:00000034 $d
 .ARM.exidx.text.FLASH_EraseAllPages:00000000 $d
-     /tmp/ccPdhsky.s:1397   .text.FLASH_ErasePage:00000000 $t
-     /tmp/ccPdhsky.s:1402   .text.FLASH_ErasePage:00000000 FLASH_ErasePage
-     /tmp/ccPdhsky.s:1457   .text.FLASH_ErasePage:00000038 $d
+     /tmp/ccM5q8zb.s:1397   .text.FLASH_ErasePage:00000000 $t
+     /tmp/ccM5q8zb.s:1402   .text.FLASH_ErasePage:00000000 FLASH_ErasePage
+     /tmp/ccM5q8zb.s:1457   .text.FLASH_ErasePage:00000038 $d
   .ARM.exidx.text.FLASH_ErasePage:00000000 $d
-     /tmp/ccPdhsky.s:1463   .text.FLASH_WaitForLastBank1Operation:00000000 $t
-     /tmp/ccPdhsky.s:1468   .text.FLASH_WaitForLastBank1Operation:00000000 FLASH_WaitForLastBank1Operation
+     /tmp/ccM5q8zb.s:1463   .text.FLASH_WaitForLastBank1Operation:00000000 $t
+     /tmp/ccM5q8zb.s:1468   .text.FLASH_WaitForLastBank1Operation:00000000 FLASH_WaitForLastBank1Operation
 .ARM.exidx.text.FLASH_WaitForLastBank1Operation:00000000 $d
-     /tmp/ccPdhsky.s:1520   .text.FLASH_EraseAllBank1Pages:00000000 $t
-     /tmp/ccPdhsky.s:1525   .text.FLASH_EraseAllBank1Pages:00000000 FLASH_EraseAllBank1Pages
-     /tmp/ccPdhsky.s:1573   .text.FLASH_EraseAllBank1Pages:00000034 $d
+     /tmp/ccM5q8zb.s:1520   .text.FLASH_EraseAllBank1Pages:00000000 $t
+     /tmp/ccM5q8zb.s:1525   .text.FLASH_EraseAllBank1Pages:00000000 FLASH_EraseAllBank1Pages
+     /tmp/ccM5q8zb.s:1573   .text.FLASH_EraseAllBank1Pages:00000034 $d
 .ARM.exidx.text.FLASH_EraseAllBank1Pages:00000000 $d
                      .debug_frame:00000010 $d
 

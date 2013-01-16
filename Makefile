@@ -280,9 +280,9 @@ LSTFILES   = $(addprefix $(OUTDIR)/, $(addsuffix .lst, $(ALLSRCBASE)))
 DEPFILES   = $(addprefix $(OUTDIR)/dep/, $(addsuffix .o.d, $(ALLSRCBASE)))
 
 # Default target.
-#all: begin gccversion sizebefore build sizeafter finished end
 all: begin createdirs gccversion build sizeafter finished end
-	cp out/$(TARGET).elf ../..
+	cp out/$(TARGET).elf .
+	#./flash.sh
 
 elf: $(OUTDIR)/$(TARGET).elf
 lss: $(OUTDIR)/$(TARGET).lss 
@@ -453,6 +453,7 @@ clean_list :
 	$(REMOVE) $(SRCARM:.c=.s)
 	$(REMOVE) $(CPPSRC:.cpp=.s)
 	$(REMOVE) $(CPPSRCARM:.cpp=.s)
+	$(REMOVE) $(TARGET).elf
 
 
 # Include the dependency files.

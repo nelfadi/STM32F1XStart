@@ -23,7 +23,7 @@ int main(void)
 
   //==============================================
 
-  SysTick_Config(SystemCoreClock / 1000);
+  //SysTick_Config(SystemCoreClock / 1000);
 
 
   while(1)
@@ -33,13 +33,12 @@ int main(void)
     GPIO_SetBits(GPIOC, GPIO_Pin_6);
     GPIO_ResetBits(GPIOC, GPIO_Pin_7);
 
-    Delay(0xDFFFF);
+    Delay(0x20000);
     
     GPIO_ResetBits(GPIOC, GPIO_Pin_6);
     GPIO_SetBits(GPIOC, GPIO_Pin_7);
 
-    Delay(0xDFFFF);
-
+    Delay(0xA0000);
 
 
   }

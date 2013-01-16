@@ -174,7 +174,7 @@ void (* const g_pfnVectors[])(void) =
     DMA1_Channel4_IRQHandler,   /* DMA1 Channel 4 */
     DMA1_Channel5_IRQHandler,   /* DMA1 Channel 5 */
     DMA1_Channel6_IRQHandler,   /* DMA1 Channel 6 */
-    DMA1_Channel7_IRQHandler,   /* DMA1 Channel 7 */00 00 00 00
+    DMA1_Channel7_IRQHandler,   /* DMA1 Channel 7 */
     ADC1_2_IRQHandler,          /* ADC1 & ADC2 */
     USB_HP_CAN1_TX_IRQHandler,  /* USB High Priority or CAN1 TX */
     USB_LP_CAN1_RX0_IRQHandler, /* USB Low  Priority or CAN1 RX0 */

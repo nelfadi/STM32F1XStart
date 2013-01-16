@@ -297,71 +297,70 @@
  271:startup_stm32f10x.c **** *
  272:startup_stm32f10x.c **** *******************************************************************************/
  273:startup_stm32f10x.c **** #pragma weak HardFault_Handler = Default_Handler
- 274:startup_stm32f10x.c **** 
- 275:startup_stm32f10x.c **** #pragma weak NMI_Handler = Default_Handler
- 276:startup_stm32f10x.c **** #pragma weak MemManage_Handler = Default_Handler
- 277:startup_stm32f10x.c **** #pragma weak BusFault_Handler = Default_Handler
- 278:startup_stm32f10x.c **** #pragma weak UsageFault_Handler = Default_Handler
- 279:startup_stm32f10x.c **** #pragma weak SVC_Handler = Default_Handler
- 280:startup_stm32f10x.c **** #pragma weak DebugMon_Handler = Default_Handler
- 281:startup_stm32f10x.c **** #pragma weak PendSV_Handler = Default_Handler
- 282:startup_stm32f10x.c **** #pragma weak SysTick_Handler = Default_Handler
- 283:startup_stm32f10x.c **** #pragma weak WWDG_IRQHandler = Default_Handler
- 284:startup_stm32f10x.c **** #pragma weak PVD_IRQHandler = Default_Handler
- 285:startup_stm32f10x.c **** #pragma weak TAMPER_IRQHandler = Default_Handler
- 286:startup_stm32f10x.c **** #pragma weak RTC_IRQHandler = Default_Handler
- 287:startup_stm32f10x.c **** #pragma weak FLASH_IRQHandler = Default_Handler
- 288:startup_stm32f10x.c **** #pragma weak RCC_IRQHandler = Default_Handler
- 289:startup_stm32f10x.c **** #pragma weak EXTI0_IRQHandler = Default_Handler
- 290:startup_stm32f10x.c **** #pragma weak EXTI1_IRQHandler = Default_Handler
- 291:startup_stm32f10x.c **** #pragma weak EXTI2_IRQHandler = Default_Handler
- 292:startup_stm32f10x.c **** #pragma weak EXTI3_IRQHandler = Default_Handler
- 293:startup_stm32f10x.c **** #pragma weak EXTI4_IRQHandler = Default_Handler
- 294:startup_stm32f10x.c **** #pragma weak DMA1_Channel1_IRQHandler = Default_Handler
- 295:startup_stm32f10x.c **** #pragma weak DMA1_Channel2_IRQHandler = Default_Handler
- 296:startup_stm32f10x.c **** #pragma weak DMA1_Channel3_IRQHandler = Default_Handler
- 297:startup_stm32f10x.c **** #pragma weak DMA1_Channel4_IRQHandler = Default_Handler
- 298:startup_stm32f10x.c **** #pragma weak DMA1_Channel5_IRQHandler = Default_Handler
- 299:startup_stm32f10x.c **** #pragma weak DMA1_Channel6_IRQHandler = Default_Handler
- 300:startup_stm32f10x.c **** #pragma weak DMA1_Channel7_IRQHandler = Default_Handler
- 301:startup_stm32f10x.c **** #pragma weak ADC1_2_IRQHandler = Default_Handler
- 302:startup_stm32f10x.c **** #pragma weak USB_HP_CAN1_TX_IRQHandler = Default_Handler
- 303:startup_stm32f10x.c **** #pragma weak USB_LP_CAN1_RX0_IRQHandler = Default_Handler
- 304:startup_stm32f10x.c **** #pragma weak CAN1_RX1_IRQHandler = Default_Handler
- 305:startup_stm32f10x.c **** #pragma weak CAN1_SCE_IRQHandler = Default_Handler
- 306:startup_stm32f10x.c **** #pragma weak EXTI9_5_IRQHandler = Default_Handler
- 307:startup_stm32f10x.c **** #pragma weak TIM1_BRK_IRQHandler = Default_Handler
- 308:startup_stm32f10x.c **** #pragma weak TIM1_UP_IRQHandler = Default_Handler
- 309:startup_stm32f10x.c **** #pragma weak TIM1_TRG_COM_IRQHandler = Default_Handler
- 310:startup_stm32f10x.c **** #pragma weak TIM1_CC_IRQHandler = Default_Handler
- 311:startup_stm32f10x.c **** #pragma weak TIM2_IRQHandler = Default_Handler
- 312:startup_stm32f10x.c **** #pragma weak TIM3_IRQHandler = Default_Handler
- 313:startup_stm32f10x.c **** #pragma weak TIM4_IRQHandler = Default_Handler
- 314:startup_stm32f10x.c **** #pragma weak I2C1_EV_IRQHandler = Default_Handler
- 315:startup_stm32f10x.c **** #pragma weak I2C1_ER_IRQHandler = Default_Handler
- 316:startup_stm32f10x.c **** #pragma weak I2C2_EV_IRQHandler = Default_Handler
- 317:startup_stm32f10x.c **** #pragma weak I2C2_ER_IRQHandler = Default_Handler
- 318:startup_stm32f10x.c **** #pragma weak SPI1_IRQHandler = Default_Handler
- 319:startup_stm32f10x.c **** #pragma weak SPI2_IRQHandler = Default_Handler
- 320:startup_stm32f10x.c **** #pragma weak USART1_IRQHandler = Default_Handler
- 321:startup_stm32f10x.c **** #pragma weak USART2_IRQHandler = Default_Handler
- 322:startup_stm32f10x.c **** #pragma weak USART3_IRQHandler = Default_Handler
- 323:startup_stm32f10x.c **** #pragma weak EXTI15_10_IRQHandler = Default_Handler
- 324:startup_stm32f10x.c **** #pragma weak RTCAlarm_IRQHandler = Default_Handler
- 325:startup_stm32f10x.c **** #pragma weak USBWakeUp_IRQHandler = Default_Handler
- 326:startup_stm32f10x.c **** 
- 327:startup_stm32f10x.c **** /**
- 328:startup_stm32f10x.c ****  * @brief  This is the code that gets called when the processor receives an
- 329:startup_stm32f10x.c ****  *         unexpected interrupt.  This simply enters an infinite loop, preserving
- 330:startup_stm32f10x.c ****  *         the system state for examination by a debugger.
- 331:startup_stm32f10x.c ****  *
- 332:startup_stm32f10x.c ****  * @param  None
- 333:startup_stm32f10x.c ****  * @retval : None
- 334:startup_stm32f10x.c **** */
- 335:startup_stm32f10x.c **** 
- 336:startup_stm32f10x.c **** void Default_Handler(void)
- 337:startup_stm32f10x.c **** {
-  28              		.loc 1 337 0
+ 274:startup_stm32f10x.c **** #pragma weak NMI_Handler = Default_Handler
+ 275:startup_stm32f10x.c **** #pragma weak MemManage_Handler = Default_Handler
+ 276:startup_stm32f10x.c **** #pragma weak BusFault_Handler = Default_Handler
+ 277:startup_stm32f10x.c **** #pragma weak UsageFault_Handler = Default_Handler
+ 278:startup_stm32f10x.c **** #pragma weak SVC_Handler = Default_Handler
+ 279:startup_stm32f10x.c **** #pragma weak DebugMon_Handler = Default_Handler
+ 280:startup_stm32f10x.c **** #pragma weak PendSV_Handler = Default_Handler
+ 281:startup_stm32f10x.c **** #pragma weak SysTick_Handler = Default_Handler
+ 282:startup_stm32f10x.c **** #pragma weak WWDG_IRQHandler = Default_Handler
+ 283:startup_stm32f10x.c **** #pragma weak PVD_IRQHandler = Default_Handler
+ 284:startup_stm32f10x.c **** #pragma weak TAMPER_IRQHandler = Default_Handler
+ 285:startup_stm32f10x.c **** #pragma weak RTC_IRQHandler = Default_Handler
+ 286:startup_stm32f10x.c **** #pragma weak FLASH_IRQHandler = Default_Handler
+ 287:startup_stm32f10x.c **** #pragma weak RCC_IRQHandler = Default_Handler
+ 288:startup_stm32f10x.c **** #pragma weak EXTI0_IRQHandler = Default_Handler
+ 289:startup_stm32f10x.c **** #pragma weak EXTI1_IRQHandler = Default_Handler
+ 290:startup_stm32f10x.c **** #pragma weak EXTI2_IRQHandler = Default_Handler
+ 291:startup_stm32f10x.c **** #pragma weak EXTI3_IRQHandler = Default_Handler
+ 292:startup_stm32f10x.c **** #pragma weak EXTI4_IRQHandler = Default_Handler
+ 293:startup_stm32f10x.c **** #pragma weak DMA1_Channel1_IRQHandler = Default_Handler
+ 294:startup_stm32f10x.c **** #pragma weak DMA1_Channel2_IRQHandler = Default_Handler
+ 295:startup_stm32f10x.c **** #pragma weak DMA1_Channel3_IRQHandler = Default_Handler
+ 296:startup_stm32f10x.c **** #pragma weak DMA1_Channel4_IRQHandler = Default_Handler
+ 297:startup_stm32f10x.c **** #pragma weak DMA1_Channel5_IRQHandler = Default_Handler
+ 298:startup_stm32f10x.c **** #pragma weak DMA1_Channel6_IRQHandler = Default_Handler
+ 299:startup_stm32f10x.c **** #pragma weak DMA1_Channel7_IRQHandler = Default_Handler
+ 300:startup_stm32f10x.c **** #pragma weak ADC1_2_IRQHandler = Default_Handler
+ 301:startup_stm32f10x.c **** #pragma weak USB_HP_CAN1_TX_IRQHandler = Default_Handler
+ 302:startup_stm32f10x.c **** #pragma weak USB_LP_CAN1_RX0_IRQHandler = Default_Handler
+ 303:startup_stm32f10x.c **** #pragma weak CAN1_RX1_IRQHandler = Default_Handler
+ 304:startup_stm32f10x.c **** #pragma weak CAN1_SCE_IRQHandler = Default_Handler
+ 305:startup_stm32f10x.c **** #pragma weak EXTI9_5_IRQHandler = Default_Handler
+ 306:startup_stm32f10x.c **** #pragma weak TIM1_BRK_IRQHandler = Default_Handler
+ 307:startup_stm32f10x.c **** #pragma weak TIM1_UP_IRQHandler = Default_Handler
+ 308:startup_stm32f10x.c **** #pragma weak TIM1_TRG_COM_IRQHandler = Default_Handler
+ 309:startup_stm32f10x.c **** #pragma weak TIM1_CC_IRQHandler = Default_Handler
+ 310:startup_stm32f10x.c **** #pragma weak TIM2_IRQHandler = Default_Handler
+ 311:startup_stm32f10x.c **** #pragma weak TIM3_IRQHandler = Default_Handler
+ 312:startup_stm32f10x.c **** #pragma weak TIM4_IRQHandler = Default_Handler
+ 313:startup_stm32f10x.c **** #pragma weak I2C1_EV_IRQHandler = Default_Handler
+ 314:startup_stm32f10x.c **** #pragma weak I2C1_ER_IRQHandler = Default_Handler
+ 315:startup_stm32f10x.c **** #pragma weak I2C2_EV_IRQHandler = Default_Handler
+ 316:startup_stm32f10x.c **** #pragma weak I2C2_ER_IRQHandler = Default_Handler
+ 317:startup_stm32f10x.c **** #pragma weak SPI1_IRQHandler = Default_Handler
+ 318:startup_stm32f10x.c **** #pragma weak SPI2_IRQHandler = Default_Handler
+ 319:startup_stm32f10x.c **** #pragma weak USART1_IRQHandler = Default_Handler
+ 320:startup_stm32f10x.c **** #pragma weak USART2_IRQHandler = Default_Handler
+ 321:startup_stm32f10x.c **** #pragma weak USART3_IRQHandler = Default_Handler
+ 322:startup_stm32f10x.c **** #pragma weak EXTI15_10_IRQHandler = Default_Handler
+ 323:startup_stm32f10x.c **** #pragma weak RTCAlarm_IRQHandler = Default_Handler
+ 324:startup_stm32f10x.c **** #pragma weak USBWakeUp_IRQHandler = Default_Handler
+ 325:startup_stm32f10x.c **** 
+ 326:startup_stm32f10x.c **** /**
+ 327:startup_stm32f10x.c ****  * @brief  This is the code that gets called when the processor receives an
+ 328:startup_stm32f10x.c ****  *         unexpected interrupt.  This simply enters an infinite loop, preserving
+ 329:startup_stm32f10x.c ****  *         the system state for examination by a debugger.
+ 330:startup_stm32f10x.c ****  *
+ 331:startup_stm32f10x.c ****  * @param  None
+ 332:startup_stm32f10x.c ****  * @retval : None
+ 333:startup_stm32f10x.c **** */
+ 334:startup_stm32f10x.c **** 
+ 335:startup_stm32f10x.c **** void Default_Handler(void)
+ 336:startup_stm32f10x.c **** {
+  28              		.loc 1 336 0
   29              		.cfi_startproc
   30              		@ Volatile: function does not return.
   31              		@ args = 0, pretend = 0, frame = 0
@@ -684,71 +683,71 @@
  337              	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 startup_stm32f10x.c
-     /tmp/cc7Cgoqv.s:19     .text.Default_Handler:00000000 $t
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 Default_Handler
+     /tmp/ccpC62ii.s:19     .text.Default_Handler:00000000 $t
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 Default_Handler
   .ARM.exidx.text.Default_Handler:00000000 $d
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 NMI_Handler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 MemManage_Handler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 BusFault_Handler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 UsageFault_Handler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 SVC_Handler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 DebugMon_Handler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 PendSV_Handler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 SysTick_Handler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 WWDG_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 PVD_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 TAMPER_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 RTC_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 FLASH_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 RCC_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 EXTI0_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 EXTI1_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 EXTI2_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 EXTI3_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 EXTI4_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 DMA1_Channel1_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 DMA1_Channel2_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 DMA1_Channel3_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 DMA1_Channel4_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 DMA1_Channel5_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 DMA1_Channel6_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 DMA1_Channel7_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 ADC1_2_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 USB_HP_CAN1_TX_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 USB_LP_CAN1_RX0_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 CAN1_RX1_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 CAN1_SCE_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 EXTI9_5_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 TIM1_BRK_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 TIM1_UP_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 TIM1_TRG_COM_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 TIM1_CC_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 TIM2_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 TIM3_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 TIM4_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 I2C1_EV_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 I2C1_ER_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 I2C2_EV_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 I2C2_ER_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 SPI1_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 SPI2_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 USART1_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 USART2_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 USART3_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 EXTI15_10_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 RTCAlarm_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 USBWakeUp_IRQHandler
-     /tmp/cc7Cgoqv.s:24     .text.Default_Handler:00000000 HardFault_Handler
-     /tmp/cc7Cgoqv.s:145    .text.__Init_Data_and_BSS:00000000 $t
-     /tmp/cc7Cgoqv.s:150    .text.__Init_Data_and_BSS:00000000 __Init_Data_and_BSS
-     /tmp/cc7Cgoqv.s:213    .text.__Init_Data_and_BSS:00000030 $d
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 NMI_Handler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 MemManage_Handler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 BusFault_Handler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 UsageFault_Handler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 SVC_Handler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 DebugMon_Handler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 PendSV_Handler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 SysTick_Handler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 WWDG_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 PVD_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 TAMPER_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 RTC_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 FLASH_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 RCC_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 EXTI0_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 EXTI1_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 EXTI2_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 EXTI3_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 EXTI4_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 DMA1_Channel1_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 DMA1_Channel2_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 DMA1_Channel3_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 DMA1_Channel4_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 DMA1_Channel5_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 DMA1_Channel6_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 DMA1_Channel7_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 ADC1_2_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 USB_HP_CAN1_TX_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 USB_LP_CAN1_RX0_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 CAN1_RX1_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 CAN1_SCE_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 EXTI9_5_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 TIM1_BRK_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 TIM1_UP_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 TIM1_TRG_COM_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 TIM1_CC_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 TIM2_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 TIM3_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 TIM4_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 I2C1_EV_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 I2C1_ER_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 I2C2_EV_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 I2C2_ER_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 SPI1_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 SPI2_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 USART1_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 USART2_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 USART3_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 EXTI15_10_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 RTCAlarm_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 USBWakeUp_IRQHandler
+     /tmp/ccpC62ii.s:24     .text.Default_Handler:00000000 HardFault_Handler
+     /tmp/ccpC62ii.s:145    .text.__Init_Data_and_BSS:00000000 $t
+     /tmp/ccpC62ii.s:150    .text.__Init_Data_and_BSS:00000000 __Init_Data_and_BSS
+     /tmp/ccpC62ii.s:213    .text.__Init_Data_and_BSS:00000030 $d
 .ARM.exidx.text.__Init_Data_and_BSS:00000000 $d
-     /tmp/cc7Cgoqv.s:223    .text.Reset_Handler:00000000 $t
-     /tmp/cc7Cgoqv.s:228    .text.Reset_Handler:00000000 Reset_Handler
+     /tmp/ccpC62ii.s:223    .text.Reset_Handler:00000000 $t
+     /tmp/ccpC62ii.s:228    .text.Reset_Handler:00000000 Reset_Handler
     .ARM.extab.text.Reset_Handler:00000000 $d
     .ARM.exidx.text.Reset_Handler:00000000 $d
-     /tmp/cc7Cgoqv.s:268    .isr_vectorsflash:00000000 g_pfnVectors
-     /tmp/cc7Cgoqv.s:265    .isr_vectorsflash:00000000 $d
+     /tmp/ccpC62ii.s:268    .isr_vectorsflash:00000000 g_pfnVectors
+     /tmp/ccpC62ii.s:265    .isr_vectorsflash:00000000 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS
